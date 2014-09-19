@@ -37,7 +37,9 @@ C#控制程序应自行将其序列化成符合*Exchange Data*格式的Class后�
 
 C#客户端通过Subsribe侦听命令,通过Publish发送结果.
 
-所有侦听和发布的```Channel```都是在 **DistMeasureManage** 频道上,具体的命令操作
+侦听的```Channel```是在 **DistMeasureManage:ToController** 频道上,具体的命令操作
+
+发布的```Channel```是在 **DistMeasureManage:FromController** 频道上,具体的命令操作
 
 通过解析后的Command来获取.
 
