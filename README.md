@@ -48,7 +48,7 @@ C#客户端通过Subsribe侦听命令,通过Publish发送结果.
 -----------
 #####3.测量一个点
 ```javascript
-//Subsribe
+//Subsribe ToController
 {
     Command: "Measure",
     Para: {
@@ -64,18 +64,31 @@ C#客户端通过Subsribe侦听命令,通过Publish发送结果.
 ```
 
 ```javascript
-//Publish
+//Publish FromController
 {
     Command: "Measure",
     Para: {
-        "title": "测量的仪器编号",
-        "type": "float",
+        "description": "测量结果数据",
+        "type": "object",
+        "properties": {
+            "Device": {
+                "description": "仪器的编号",
+                "type": "integer"
+            },
+            "Value": {
+                "description": "测量返回的距离",
+                "type": "float"
+            }
+        }
     }
 }
 //示例
 {
     Command: "Measure",
-    Para: 5.324
+    Para: {
+    	Device:33,
+    	Value:5.321
+    }
 }
 ```
 
