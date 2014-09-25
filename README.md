@@ -168,3 +168,55 @@ C#客户端通过Subsribe侦听命令,通过Publish发送结果.
 //Publish
 //格式同Measure,每完成一个仪器测量,发布一个结果
 ```
+
+#####6.停止当前的测量
+
+```javascript
+//Subsribe
+{
+    Command: "StopMeasure",
+    Para: {
+        "type": "null" //没有参数
+    }
+}//停止测量
+//示例
+{
+    Command: "StopMeasure",
+    Para: {}
+}//直接发送命令,没有任何参数
+```
+
+```javascript
+//Publish
+{
+    Command: "StopMeasure",
+    Para: {
+        "description": "指示是否停止测量成功,1为成功,0为失败.",
+        "type": "integer"
+    }
+}//停止测量
+//示例
+{
+    Command: "StopMeasure",
+    Para: 0//停止失败
+}//
+```
+
+#####7.未经处理的异常提示
+
+```javascript
+//Publish
+{
+    Command: "Err",
+    Para: {
+        "description": "错误信息",
+        "type": "string"
+    }
+}//错误提示只需要publish就可以了.不需要Subsribe来接受
+
+//示例
+{
+    Command: "Err",
+    Para: "设备异常,将重新启动控制程序"//比如,重启的出错信息
+}//
+```
