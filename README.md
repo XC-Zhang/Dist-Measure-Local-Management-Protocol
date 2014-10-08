@@ -220,3 +220,36 @@ C#客户端通过Subsribe侦听命令,通过Publish发送结果.
     Para: "设备异常,将重新启动控制程序"//比如,重启的出错信息
 }//
 ```
+
+#####8.导出数据到U盘
+
+```javascript
+//Subsribe
+{
+    Command: "Export",
+    Para: {
+        "type": "null" //没有参数
+    }
+}
+//示例
+{
+    Command: "Export",
+    Para: {}
+}//直接发送命令,没有任何参数
+```
+
+```javascript
+//Publish
+{
+    Command: "Export",
+    Para: {
+        "description": "错误信息,成功时为空字符串.",
+        "type": "string"
+    }
+}
+//示例
+{
+    Command: "Export",
+    Para: "没有可用的USB设备!"//导出失败
+}//
+```
